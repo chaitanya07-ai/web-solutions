@@ -14,7 +14,7 @@ import { Magnetic } from "@/components/ui/primitives";
 import { RotatingWord } from "@/components/effects";
 
 /* ------------------------------------------------------------------ */
-/*  Gold-dust particle field                                          */
+/* Gold-dust particle field                                           */
 /* ------------------------------------------------------------------ */
 
 function GoldDust() {
@@ -31,7 +31,10 @@ function GoldDust() {
       "(prefers-reduced-motion: reduce)"
     ).matches;
 
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const dpr = Math.min(
+      window.devicePixelRatio || 1,
+      2
+    );
 
     let w = 0;
     let h = 0;
@@ -54,14 +57,17 @@ function GoldDust() {
         Math.floor((w * h) / 16000)
       );
 
-      dots = Array.from({ length: count }, () => ({
-        x: Math.random() * w,
-        y: Math.random() * h,
-        r: Math.random() * 1.5 + 0.5,
-        vx: (Math.random() - 0.5) * 0.18,
-        vy: -Math.random() * 0.22 - 0.04,
-        a: Math.random() * 0.45 + 0.12,
-      }));
+      dots = Array.from(
+        { length: count },
+        () => ({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          r: Math.random() * 1.5 + 0.5,
+          vx: (Math.random() - 0.5) * 0.18,
+          vy: -Math.random() * 0.22 - 0.04,
+          a: Math.random() * 0.45 + 0.12,
+        })
+      );
     };
 
     const resize = () => {
@@ -85,7 +91,10 @@ function GoldDust() {
 
     resize();
 
-    window.addEventListener("resize", resize);
+    window.addEventListener(
+      "resize",
+      resize
+    );
 
     const mouse = {
       x: -9999,
@@ -93,10 +102,14 @@ function GoldDust() {
     };
 
     const onMove = (e: PointerEvent) => {
-      const r = canvas.getBoundingClientRect();
+      const r =
+        canvas.getBoundingClientRect();
 
-      mouse.x = e.clientX - r.left;
-      mouse.y = e.clientY - r.top;
+      mouse.x =
+        e.clientX - r.left;
+
+      mouse.y =
+        e.clientY - r.top;
     };
 
     window.addEventListener(
@@ -105,14 +118,22 @@ function GoldDust() {
     );
 
     const draw = () => {
-      ctx.clearRect(0, 0, w, h);
+      ctx.clearRect(
+        0,
+        0,
+        w,
+        h
+      );
 
       for (const p of dots) {
-        // Gentle repulsion around cursor
-        const dx = p.x - mouse.x;
-        const dy = p.y - mouse.y;
+        const dx =
+          p.x - mouse.x;
 
-        const dist = Math.hypot(dx, dy);
+        const dy =
+          p.y - mouse.y;
+
+        const dist =
+          Math.hypot(dx, dy);
 
         if (
           dist < 130 &&
@@ -137,7 +158,8 @@ function GoldDust() {
 
         if (p.y < -6) {
           p.y = h + 6;
-          p.x = Math.random() * w;
+          p.x =
+            Math.random() * w;
         }
 
         if (p.x < -6) {
@@ -163,7 +185,8 @@ function GoldDust() {
         ctx.fill();
       }
 
-      raf = requestAnimationFrame(draw);
+      raf =
+        requestAnimationFrame(draw);
     };
 
     if (reduced) {
@@ -183,7 +206,8 @@ function GoldDust() {
         ctx.fill();
       });
     } else {
-      raf = requestAnimationFrame(draw);
+      raf =
+        requestAnimationFrame(draw);
     }
 
     return () => {
@@ -211,7 +235,7 @@ function GoldDust() {
 }
 
 /* ------------------------------------------------------------------ */
-/*  Headline line with masked rise-up reveal                          */
+/* Headline line with masked rise-up reveal                           */
 /* ------------------------------------------------------------------ */
 
 function Line({
@@ -224,8 +248,12 @@ function Line({
   return (
     <span className="block overflow-hidden pb-[0.08em]">
       <motion.span
-        initial={{ y: "112%" }}
-        animate={{ y: 0 }}
+        initial={{
+          y: "112%",
+        }}
+        animate={{
+          y: 0,
+        }}
         transition={{
           duration: 1.1,
           delay,
@@ -240,11 +268,14 @@ function Line({
 }
 
 /* ------------------------------------------------------------------ */
-/*  Hero                                                               */
+/* Hero                                                               */
 /* ------------------------------------------------------------------ */
 
 export default function Hero() {
-  // Mouse parallax for background layers
+  /* -------------------------------------------------------------- */
+  /* Mouse parallax                                                 */
+  /* -------------------------------------------------------------- */
+
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
 
@@ -305,7 +336,7 @@ export default function Hero() {
       {/* ========================================================== */}
 
       <video
-        className="absolute inset-0 z-0 h-full w-full object-cover opacity-[0.18]"
+        className="absolute inset-0 z-0 h-full w-full object-cover opacity-[0.60]"
         autoPlay
         muted
         loop
@@ -320,31 +351,36 @@ export default function Hero() {
       </video>
 
       {/* ========================================================== */}
-      {/* VIDEO OVERLAY                                               */}
+      {/* VIDEO READABILITY GRADIENT                                  */}
       {/* ========================================================== */}
 
       <div
-        className="absolute inset-0 z-[1] bg-[#faf9f5]/[0.78]"
+        className="absolute inset-0 z-[1]"
         aria-hidden="true"
-      />
-
-      {/* ========================================================== */}
-      {/* BACKGROUND GRID                                             */}
-      {/* ========================================================== */}
-
-      <motion.div
-        style={{
-          x: gridX,
-          y: gridY,
-        }}
-        className="absolute -inset-24 z-[2]"
-        aria-hidden
       >
-        <div className="bg-grid mask-fade absolute inset-0" />
-      </motion.div>
+        <div
+          className="
+            absolute inset-0
+            bg-gradient-to-r
+            from-[#faf9f5]/[0.96]
+            via-[#faf9f5]/[0.68]
+            to-[#faf9f5]/[0.28]
+          "
+        />
+
+        <div
+          className="
+            absolute inset-0
+            bg-gradient-to-b
+            from-[#faf9f5]/[0.75]
+            via-transparent
+            to-[#faf9f5]/[0.55]
+          "
+        />
+      </div>
 
       {/* ========================================================== */}
-      {/* GOLD GLOW                                                   */}
+      {/* SOFT GOLD ATMOSPHERE                                       */}
       {/* ========================================================== */}
 
       <motion.div
@@ -352,25 +388,58 @@ export default function Hero() {
           x: glowX,
           y: glowY,
         }}
-        className="absolute left-1/2 top-1/3 z-[2] h-[560px] w-[560px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/[0.13] blur-[140px]"
+        className="
+          absolute
+          left-[65%]
+          top-1/2
+          z-[2]
+          h-[600px]
+          w-[600px]
+          -translate-x-1/2
+          -translate-y-1/2
+          rounded-full
+          bg-gold/[0.12]
+          blur-[150px]
+        "
         aria-hidden
       />
 
       {/* ========================================================== */}
-      {/* GOLD DUST                                                   */}
+      {/* PARALLAX GRID                                              */}
       {/* ========================================================== */}
 
-      <div className="relative z-[3]">
+      <motion.div
+        style={{
+          x: gridX,
+          y: gridY,
+        }}
+        className="absolute -inset-24 z-[3]"
+        aria-hidden
+      >
+        <div className="bg-grid mask-fade absolute inset-0" />
+      </motion.div>
+
+      {/* ========================================================== */}
+      {/* GOLD DUST                                                  */}
+      {/* ========================================================== */}
+
+      <div
+        className="absolute inset-0 z-[4] pointer-events-none"
+        aria-hidden
+      >
         <GoldDust />
       </div>
 
       {/* ========================================================== */}
-      {/* MAIN HERO CONTENT                                           */}
+      {/* MAIN CONTENT                                               */}
       {/* ========================================================== */}
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6">
 
-        {/* Availability badge */}
+        {/* -------------------------------------------------------- */}
+        {/* Availability badge                                       */}
+        {/* -------------------------------------------------------- */}
+
         <motion.div
           initial={{
             opacity: 0,
@@ -385,20 +454,55 @@ export default function Hero() {
             delay: D,
             ease: EASE,
           }}
-          className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-line bg-white/60 px-4 py-2 text-[11px] font-semibold uppercase tracking-widest2 text-ink-soft backdrop-blur"
+          className="
+            mb-8
+            inline-flex
+            items-center
+            gap-2.5
+            rounded-full
+            border
+            border-line
+            bg-white/60
+            px-4
+            py-2
+            text-[11px]
+            font-semibold
+            uppercase
+            tracking-widest2
+            text-ink-soft
+            backdrop-blur
+          "
         >
-          <span className="h-1.5 w-1.5 rounded-full bg-gold animate-pulseDot" />
+          <span
+            className="
+              h-1.5
+              w-1.5
+              rounded-full
+              bg-gold
+              animate-pulseDot
+            "
+          />
 
           Websites + AI automation —
           worldwide
         </motion.div>
 
-        {/* ======================================================== */}
-        {/* HEADLINE                                                  */}
-        {/* ======================================================== */}
+        {/* -------------------------------------------------------- */}
+        {/* Headline                                                  */}
+        {/* -------------------------------------------------------- */}
 
-        <h1 className="font-display text-[13.5vw] font-normal leading-[0.94] tracking-[-0.02em] text-ink sm:text-[11vw] lg:text-[8.6rem]">
-
+        <h1
+          className="
+            font-display
+            text-[13.5vw]
+            font-normal
+            leading-[0.94]
+            tracking-[-0.02em]
+            text-ink
+            sm:text-[11vw]
+            lg:text-[8.6rem]
+          "
+        >
           <Line delay={D + 0.05}>
             We build websites
           </Line>
@@ -416,14 +520,23 @@ export default function Hero() {
               .
             </span>
           </Line>
-
         </h1>
 
-        {/* ======================================================== */}
-        {/* SUBTEXT + CTA                                             */}
-        {/* ======================================================== */}
+        {/* -------------------------------------------------------- */}
+        {/* Description + Buttons                                    */}
+        {/* -------------------------------------------------------- */}
 
-        <div className="mt-12 flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
+        <div
+          className="
+            mt-12
+            flex
+            flex-col
+            gap-10
+            md:flex-row
+            md:items-end
+            md:justify-between
+          "
+        >
 
           {/* Description */}
           <motion.p
@@ -440,7 +553,13 @@ export default function Hero() {
               delay: D + 0.45,
               ease: EASE,
             }}
-            className="max-w-md text-base leading-relaxed text-ink-faint sm:text-lg"
+            className="
+              max-w-md
+              text-base
+              leading-relaxed
+              text-ink-faint
+              sm:text-lg
+            "
           >
             Premium websites for{" "}
             <RotatingWord /> —
@@ -468,18 +587,49 @@ export default function Hero() {
               delay: D + 0.55,
               ease: EASE,
             }}
-            className="flex flex-wrap items-center gap-4"
+            className="
+              flex
+              flex-wrap
+              items-center
+              gap-4
+            "
           >
 
-            {/* Portfolio */}
+            {/* View portfolio */}
             <Magnetic>
               <a
                 href="#work"
-                className="group inline-flex h-14 items-center gap-2.5 rounded-full bg-ink px-9 text-[15px] font-semibold text-paper shadow-soft transition-all duration-300 hover:bg-gold hover:text-ink hover:shadow-lift"
+                className="
+                  group
+                  inline-flex
+                  h-14
+                  items-center
+                  gap-2.5
+                  rounded-full
+                  bg-ink
+                  px-9
+                  text-[15px]
+                  font-semibold
+                  text-paper
+                  shadow-soft
+                  transition-all
+                  duration-300
+                  hover:bg-gold
+                  hover:text-ink
+                  hover:shadow-lift
+                "
               >
                 View portfolio
 
-                <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45" />
+                <ArrowUpRight
+                  className="
+                    h-4
+                    w-4
+                    transition-transform
+                    duration-300
+                    group-hover:rotate-45
+                  "
+                />
               </a>
             </Magnetic>
 
@@ -488,9 +638,33 @@ export default function Hero() {
               <a
                 href={SITE.meet}
                 data-book
-                className="inline-flex h-14 items-center gap-2.5 rounded-full border border-line bg-white/60 px-9 text-[15px] font-semibold text-ink backdrop-blur transition-all duration-300 hover:border-gold hover:text-gold-deep"
+                className="
+                  inline-flex
+                  h-14
+                  items-center
+                  gap-2.5
+                  rounded-full
+                  border
+                  border-line
+                  bg-white/65
+                  px-9
+                  text-[15px]
+                  font-semibold
+                  text-ink
+                  backdrop-blur
+                  transition-all
+                  duration-300
+                  hover:border-gold
+                  hover:text-gold-deep
+                "
               >
-                <Video className="h-4 w-4 text-gold-deep" />
+                <Video
+                  className="
+                    h-4
+                    w-4
+                    text-gold-deep
+                  "
+                />
 
                 Book a free Google Meet
               </a>
@@ -501,7 +675,7 @@ export default function Hero() {
       </div>
 
       {/* ========================================================== */}
-      {/* SCROLL CUE                                                  */}
+      {/* SCROLL CUE                                                 */}
       {/* ========================================================== */}
 
       <motion.a
@@ -515,7 +689,24 @@ export default function Hero() {
         transition={{
           delay: D + 1,
         }}
-        className="absolute bottom-7 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-2 text-[10px] uppercase tracking-widest2 text-ink-faint transition-colors hover:text-gold-deep sm:flex"
+        className="
+          absolute
+          bottom-7
+          left-1/2
+          z-10
+          hidden
+          -translate-x-1/2
+          flex-col
+          items-center
+          gap-2
+          text-[10px]
+          uppercase
+          tracking-widest2
+          text-ink-faint
+          transition-colors
+          hover:text-gold-deep
+          sm:flex
+        "
         aria-label="Scroll to explore"
       >
         Scroll
