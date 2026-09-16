@@ -353,31 +353,7 @@ export default function Hero() {
       {/* ========================================================== */}
       {/* VIDEO READABILITY GRADIENT                                  */}
       {/* ========================================================== */}
-
-      <div
-        className="absolute inset-0 z-[1]"
-        aria-hidden="true"
-      >
-        <div
-          className="
-            absolute inset-0
-            bg-gradient-to-r
-            from-[#faf9f5]/[0.96]
-            via-[#faf9f5]/[0.68]
-            to-[#faf9f5]/[0.28]
-          "
-        />
-
-        <div
-          className="
-            absolute inset-0
-            bg-gradient-to-b
-            from-[#faf9f5]/[0.75]
-            via-transparent
-            to-[#faf9f5]/[0.55]
-          "
-        />
-      </div>
+    
 
       {/* ========================================================== */}
       {/* SOFT GOLD ATMOSPHERE                                       */}
