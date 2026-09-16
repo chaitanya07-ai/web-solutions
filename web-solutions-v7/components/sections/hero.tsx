@@ -1,3 +1,17 @@
+"use client";
+
+import { useEffect, useRef, type ReactNode } from "react";
+import {
+  motion,
+  useMotionValue,
+  useSpring,
+  useTransform,
+} from "framer-motion";
+import { ArrowDown, ArrowUpRight, Video } from "lucide-react";
+import { SITE } from "@/lib/site";
+import { EASE } from "@/lib/utils";
+import { Magnetic } from "@/components/ui/primitives";
+import { RotatingWord } from "@/components/effects";
 export default function Hero() {
   // Mouse parallax for the background layers
   const mx = useMotionValue(0);
