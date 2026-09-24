@@ -1,0 +1,84 @@
+{
+  "project_title": "Clay-Inspired Cinematic Futuristic Experience",
+  "archetype": "LUXURY & TECH MINIMALISM (Cinematic, Editorial, Futuristic)",
+  "context": "Marketing / Agency / Technology Showcase (Clay Global Inspired, Apple-level restraint, Vercel modernity)",
+  "target_audience": "Global enterprise clients, tech innovators, founders, design connoisseurs looking for high-craft digital product transformation",
+  "emotional_tone": "Cinematic, sophisticated, confident, innovative, precise, futuristic yet organic",
+  "color_palette": {
+    "background": "#050507",
+    "surface_base": "#0B0C10",
+    "surface_glass": "rgba(255, 255, 255, 0.03)",
+    "surface_glass_hover": "rgba(255, 255, 255, 0.06)",
+    "border_glass": "rgba(255, 255, 255, 0.08)",
+    "border_glass_accent": "rgba(255, 255, 255, 0.18)",
+    "text_primary": "#F4F4F6",
+    "text_secondary": "#9496A1",
+    "text_muted": "#5B5D6B",
+    "accent_primary": "#C1FF46",
+    "accent_glow": "rgba(193, 255, 70, 0.12)",
+    "accent_subtle": "#829570",
+    "noise_overlay": "rgba(255, 255, 255, 0.02)"
+  },
+  "typography": {
+    "heading_font": "Manrope Variable",
+    "body_font": "Instrument Sans Variable",
+    "mono_font": "JetBrains Mono Variable",
+    "hierarchy": {
+      "h1_hero": "Oversized 13.45vw desktop / 18vw mobile, 500 weight, -0.075em tracking, masked staggered reveal",
+      "h2_section": "text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight",
+      "h3_card": "text-xl sm:text-2xl font-semibold tracking-normal",
+      "overline": "text-xs uppercase tracking-[0.25em] text-blue-400 font-mono font-medium",
+      "body_large": "text-lg sm:text-xl text-slate-300 leading-relaxed font-light",
+      "body_standard": "text-base text-slate-400 leading-relaxed font-normal"
+    }
+  },
+  "spacing_and_layout": {
+    "philosophy": "Original editorial asymmetry, cinematic media, huge typography, no bento or generic service grids; source imagery only",
+    "hero_padding": "py-24 md:py-36 px-6 lg:px-16",
+    "section_padding": "py-20 md:py-32 px-6 lg:px-16",
+    "grid_bento": "grid grid-cols-1 md:grid-cols-8 lg:grid-cols-12 gap-6 lg:gap-8",
+    "card_padding": "p-6 md:p-8 lg:p-10"
+  },
+  "visual_enhancers": {
+    "glassmorphism": "backdrop-blur-xl bg-white/[0.03] border border-white/[0.08] shadow-[0_8px_32px_0_rgba(0,0,0,0.36)]",
+    "glass_card_hover": "hover:bg-white/[0.06] hover:border-white/[0.18] transition-all duration-500 hover:-translate-y-1",
+    "hero_overlay": "Art-directed offset film window, desaturated supplied reel, layered typography and selective edge masking",
+    "magnetic_cursor": "Custom glowing dot & ring follower reacting to interactive elements",
+    "glow_effects": "Restrained lime edge highlights on glass icons only; no large ambient neon glows"
+  },
+  "key_components": [
+    "Cinematic Hero with background video / R3F dynamic ambient mesh and overlay typography",
+    "Floating Glass Navbar with smooth responsive overlay mobile drawer",
+    "Interactive Service Matrix with expandable tech specs and micro-interactions",
+    "Immersive Project Case-Study Showcase with video preview toggles and metadata badges",
+    "Futuristic Tech Core / AI Narrative horizontal scroll feature strip",
+    "Client Proof / Editorial Testimonials slider with high contrast quotes",
+    "Client-side Interactive Contact Drawer / Form with custom success feedback toast (Sonner)",
+    "Custom Cursor & Magnetic CTA Button Wrappers"
+  ],
+  "image_urls": {
+    "hero_abstract": "https://images.unsplash.com/photo-1689443111130-6e9c7dfd8f9e?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "tech_tunnel": "https://images.unsplash.com/photo-1637166185518-058f5896a2e9?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "interface_render": "https://images.pexels.com/photos/27141313/pexels-photo-27141313.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "mobile_app_design": "https://images.pexels.com/photos/12605419/pexels-photo-12605419.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "architectural_dark": "https://images.unsplash.com/photo-1631477076114-9123f721b9dc?crop=entropy&cs=srgb&fm=jpg&q=85"
+  },
+  "testing_attributes": {
+    "rule": "Every button, input, link, tab, modal trigger, and major card MUST include data-testid in kebab-case",
+    "examples": [
+      "data-testid=\"nav-logo\"",
+      "data-testid=\"nav-link-services\"",
+      "data-testid=\"hero-cta-button\"",
+      "data-testid=\"project-card-1\"",
+      "data-testid=\"contact-form-submit\""
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Build a production-ready React component structure using pure Tailwind + Framer Motion for cinematic smoothness.",
+    "Do NOT use generic Vercel/Stripe light themes — adhere strictly to the luxury dark tech theme.",
+    "Avoid text-align: center globally; keep editorial left alignments with asymmetric accent grids.",
+    "Ensure all interactive elements have hover/focus states with data-testid attributes.",
+    "Support prefers-reduced-motion for smooth fallbacks.",
+    "Keep client-side state clean for interactive forms, search filters, and case study modals."
+  ]
+}
