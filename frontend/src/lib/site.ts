@@ -1,5 +1,5 @@
 // Replace this ONE value to activate every appointment / call button.
-export const GOOGLE_FORM_URL: string = "YOUR_GOOGLE_FORM_URL_HERE";
+export const GOOGLE_FORM_URL: string = "https://docs.google.com/forms/d/e/1FAIpQLSc-7DN8icO0vVKUADp8FhjyPTbiFhN1gtT6-RcCJmqgspO6QA/viewform";
 export const SITE = {
   name: "Web Solutions",
   email: "info@web-solutions.in",
