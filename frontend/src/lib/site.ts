@@ -3,7 +3,7 @@ export const GOOGLE_FORM_URL: string = "https://docs.google.com/forms/d/e/1FAIpQ
 export const SITE = {
   name: "Web Solutions",
   email: "info@web-solutions.in",
-  instagram: "https://instagram.com/chaitanya07__07",
+  instagram: "https://instagram.com/web_solutions.in",
   countries: ["India", "United States", "Canada", "United Kingdom", "Australia", "Thailand"],
 };
 
